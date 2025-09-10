@@ -6,6 +6,7 @@
 const express = require("express");
 const text = require("./utils/text");
 const { green,blue , bold, underline } = require("colorette");
+const utils = require("./utils/utils")
 
 const app = express();
 const PORT = 3000;
@@ -29,6 +30,6 @@ async function main() {
 
   console.log(title);
   console.log(blue("GitHub : https://github.com/LELUDO7/MTL-Train-Live-API"))
-  console.log(blue("Project branch : https://github.com/LELUDO7/MTL-Train-Live-API"))
+  console.log(blue(`Project branch : ${utils.getCurrentBranch()}`));
   console.log(green("API running..."))
 }

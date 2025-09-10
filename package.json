@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/LELUDO7/MTL-Train-Live-API#readme",
   "dependencies": {
+    "axios": "^1.11.0",
     "colorette": "^2.0.20",
     "express": "^5.1.0",
     "figlet": "^1.9.1"
