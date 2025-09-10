@@ -1,5 +1,6 @@
 {
   "name": "mtl-train-live-api",
+  "type": "module",
   "version": "1.0.0",
   "description": "This a API to know were the mtl exo train are and more. (This use the EXO-chrono API in the back)",
   "main": "index.js",
@@ -20,7 +21,10 @@
   "dependencies": {
     "axios": "^1.11.0",
     "colorette": "^2.0.20",
+    "dotenv": "^17.2.2",
+    "execSync": "^1.0.2",
     "express": "^5.1.0",
-    "figlet": "^1.9.1"
+    "figlet": "^1.9.1",
+    "gtfs-realtime-bindings": "^1.1.1"
   }
 }

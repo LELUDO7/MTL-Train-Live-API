@@ -3,7 +3,7 @@
 // Created date : 09-09-2025
 // Description  : All text related stuff
 
-const figlet = require("figlet");
+import figlet from 'figlet';
 
 
 async function createTitle() {
@@ -12,4 +12,4 @@ async function createTitle() {
     return title;
 }
 
-module.exports = {createTitle};
+export  {createTitle};
