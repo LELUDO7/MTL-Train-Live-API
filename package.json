@@ -1,0 +1,25 @@
+{
+  "name": "mtl-train-live-api",
+  "version": "1.0.0",
+  "description": "This a API to know were the mtl exo train are and more. (This use the EXO-chrono API in the back)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LELUDO7/MTL-Train-Live-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LELUDO7/MTL-Train-Live-API/issues"
+  },
+  "homepage": "https://github.com/LELUDO7/MTL-Train-Live-API#readme",
+  "dependencies": {
+    "colorette": "^2.0.20",
+    "express": "^5.1.0",
+    "figlet": "^1.9.1"
+  }
+}
