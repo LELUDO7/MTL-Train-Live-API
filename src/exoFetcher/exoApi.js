@@ -6,6 +6,9 @@
 import axios from "axios";
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
 import fs from "fs";
+import { updateLiveData, getLiveData } from "../live-data.js";
+
+import { log } from "console";
 
 async function fetchExoData() {
   try {
@@ -27,17 +30,11 @@ async function fetchExoData() {
         new Uint8Array(buffer)
       );
 
-    const logEntry = {
-      timestamp: new Date().toISOString(),
-      data: feed,
-    };
 
   
-    fs.writeFileSync(
-      "./data/exo_data.json",
-      JSON.stringify(logEntry, null, 2) + ",\n"
-    );
+    updateLiveData({ data: feed, updatedAt: new Date().toISOString() })
 
+  
     console.log("✅ Exo data save at", new Date().toLocaleTimeString());
   } catch (error) {
     console.error("❌ Error retrieving Exo data :", error.message);

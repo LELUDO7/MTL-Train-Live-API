@@ -4,48 +4,40 @@
 // Description  : Main file
 
 // src/index.js
-import path from 'path';
-import { fileURLToPath } from 'url';
-import express from 'express';
 import { green, blue, cyan } from 'colorette';
 import * as text from './utils/text.js';
-import * as utils from './utils/utils.js';
-import dotenv from 'dotenv';
 import { startExoFetcher } from "./exoFetcher/exoApi.js";
+import cors from "cors";
+import app from "./app.js";
+import { log } from "./utils/logger.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+import { env } from "./config/env.js";
 
-if (!process.env.PORT) {
-  console.error('❌ PORT Variable missing in .env');
-  process.exit(1);
-}
+app.use(cors({ origin: "http://127.0.0.1:5500" })); 
 
-const PORT = Number(process.env.PORT);
-const app = express();
 let title;
 
-main();
+title = "MTL_Train_Live_API";
+
+console.log(title);
+console.log(blue("GitHub: https://github.com/LELUDO7/MTL-Train-Live-API"))
+
+const server = app.listen(env.port, () => {
+  log.info(`API listening on http://localhost:${env.port}`);
+});
+
+startExoFetcher();
 
 
-
-async function main() {
-  title = await text.createTitle();
-
-  console.log(title);
-  console.log(blue("GitHub: https://github.com/LELUDO7/MTL-Train-Live-API"))
-
-  app.get("/", (req, res) => {
-    res.send(title);
+const stop = (signal) => {
+  log.info(`${signal} received, shutting down...`);
+  server.close(() => {
+    log.info("HTTP server closed");
+    process.exit(0);
   });
-  
-  app.listen(PORT, () => {
-    console.log(cyan(`Listening on port: ${PORT}`));
-    console.log(green("API running..."));
-  });
+};
 
-  startExoFetcher();
-  
-}
+
+
+

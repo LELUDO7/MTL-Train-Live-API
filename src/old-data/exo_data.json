@@ -1,0 +1,178 @@
+{
+  "timestamp": "2025-09-16T19:18:45.271Z",
+  "data": {
+    "header": {
+      "gtfsRealtimeVersion": "2.0",
+      "incrementality": "FULL_DATASET",
+      "timestamp": "1758050325"
+    },
+    "entity": [
+      {
+        "id": "2050",
+        "vehicle": {
+          "trip": {
+            "tripId": "4084019-TRAIN-A25-TRKPI-Semaine-03",
+            "scheduleRelationship": "SCHEDULED",
+            "routeId": "4"
+          },
+          "position": {
+            "latitude": 45.484710693359375,
+            "longitude": -73.58480072021484,
+            "bearing": 228,
+            "speed": 17.44444465637207
+          },
+          "currentStopSequence": 2,
+          "currentStatus": "IN_TRANSIT_TO",
+          "timestamp": "1758050325",
+          "stopId": "MTL2C",
+          "vehicle": {
+            "id": "2050"
+          },
+          "occupancyStatus": "MANY_SEATS_AVAILABLE",
+          "multiCarriageDetails": [
+            {
+              "id": "exo2050",
+              "carriageSequence": 1
+            },
+            {
+              "id": "exo2123",
+              "carriageSequence": 2
+            },
+            {
+              "id": "exo2115",
+              "carriageSequence": 3
+            },
+            {
+              "id": "exo2113",
+              "carriageSequence": 4
+            },
+            {
+              "id": "exo2124",
+              "carriageSequence": 5
+            },
+            {
+              "id": "exo2121",
+              "carriageSequence": 6
+            },
+            {
+              "id": "exo2126",
+              "carriageSequence": 7
+            },
+            {
+              "id": "exo1351",
+              "carriageSequence": 8
+            }
+          ]
+        }
+      },
+      {
+        "id": "2052",
+        "vehicle": {
+          "trip": {
+            "tripId": "4084030-TRAIN-A25-TRKPI-Semaine-03",
+            "scheduleRelationship": "SCHEDULED",
+            "routeId": "4"
+          },
+          "position": {
+            "latitude": 45.722259521484375,
+            "longitude": -73.9326400756836,
+            "bearing": 317,
+            "speed": 17.88888931274414
+          },
+          "currentStopSequence": 11,
+          "currentStatus": "IN_TRANSIT_TO",
+          "timestamp": "1758050325",
+          "stopId": "SJM1A",
+          "vehicle": {
+            "id": "2052"
+          },
+          "occupancyStatus": "MANY_SEATS_AVAILABLE",
+          "multiCarriageDetails": [
+            {
+              "id": "exo2052",
+              "carriageSequence": 1
+            },
+            {
+              "id": "exo2107",
+              "carriageSequence": 2
+            },
+            {
+              "id": "exo2117",
+              "carriageSequence": 3
+            },
+            {
+              "id": "exo2102",
+              "carriageSequence": 4
+            },
+            {
+              "id": "exo2100",
+              "carriageSequence": 5
+            },
+            {
+              "id": "exo2129",
+              "carriageSequence": 6
+            },
+            {
+              "id": "exo1354",
+              "carriageSequence": 7
+            }
+          ]
+        }
+      },
+      {
+        "id": "3017",
+        "vehicle": {
+          "trip": {
+            "tripId": "4083548-TRAIN-A25-TRKPI-Semaine-03",
+            "scheduleRelationship": "SCHEDULED",
+            "routeId": "1"
+          },
+          "position": {
+            "latitude": 45.46318435668945,
+            "longitude": -73.62344360351562,
+            "bearing": 233.60000610351562,
+            "speed": 26.91666603088379
+          },
+          "currentStopSequence": 3,
+          "currentStatus": "IN_TRANSIT_TO",
+          "timestamp": "1758050325",
+          "stopId": "MTL1C",
+          "vehicle": {
+            "id": "3017"
+          },
+          "occupancyStatus": "FEW_SEATS_AVAILABLE",
+          "multiCarriageDetails": [
+            {
+              "id": "exo3017",
+              "carriageSequence": 1
+            },
+            {
+              "id": "3142",
+              "carriageSequence": 2
+            },
+            {
+              "id": "3079",
+              "carriageSequence": 3
+            },
+            {
+              "id": "exo3119",
+              "carriageSequence": 4
+            },
+            {
+              "id": "3039",
+              "carriageSequence": 5
+            },
+            {
+              "id": "3154",
+              "carriageSequence": 6
+            },
+            {
+              "id": "exo1368",
+              "carriageSequence": 7
+            }
+          ]
+        }
+      }
+    ]
+  }
+},

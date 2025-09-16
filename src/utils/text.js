@@ -6,9 +6,9 @@
 import figlet from 'figlet';
 
 
-async function createTitle() {
+function createTitle() {
     var title= "";
-    title = await figlet.text("MTL_Train_Live_API");
+    title = figlet.text("MTL_Train_Live_API");
     return title;
 }
 
