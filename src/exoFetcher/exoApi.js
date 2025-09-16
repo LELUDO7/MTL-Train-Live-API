@@ -30,6 +30,13 @@ async function fetchExoData() {
         new Uint8Array(buffer)
       );
 
+      let index = 0;
+      feed.entity.forEach(train => {
+        feed.entity[index].vehicle.stopId = train.vehicle.stopId.slice(0,-1) + "-" +  train.vehicle.trip.routeId;
+        index++;
+      });
+
+      
 
   
     updateLiveData({ data: feed, updatedAt: new Date().toISOString() })
@@ -45,5 +52,5 @@ export function startExoFetcher() {
   
   fetchExoData();
 
-  setInterval(fetchExoData, 60 * 1000);
+  setInterval(fetchExoData, 30 * 1000);
 }
