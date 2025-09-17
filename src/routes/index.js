@@ -1,8 +1,8 @@
 import { Router } from "express";
-import trains from "./trains.route.js";
+import stations from "./stations.route.js";
 
 const router = Router();
 
-router.use("/trains", trains);
+router.use("/stations", stations);
 
 export default router;

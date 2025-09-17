@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { list } from "../controllers/trains.controller.js";
+import { list } from "../controllers/stations.controller.js";
 
 const r = Router();
 
