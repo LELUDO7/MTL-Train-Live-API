@@ -1,6 +1,6 @@
 import express from "express";
 import { notFound, errorHandler } from "./middlewares/error.js";
-import routes from "./routes/index.js";
+import routes from "./routes/route.js";
 import cors from "cors";
 
 

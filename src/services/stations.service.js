@@ -57,6 +57,18 @@ let stop = [
   { id: "MMS1-3",status:"offline", top: 57.38, left: 90.6, name: "McMasterville"},
   { id: "MSH1-3",status:"offline", top: 56.15, left: 92.3, name: "Mont-Saint-Hilaire"},
 
+  //Ligne 6 Mascouche.  
+  { id: "MTL5-6",status:"offline", top: 61.7, left: 69.8, name: "Gare Central"},
+  { id: "MTL59-6",status:"offline", top: 49.7, left: 57.17, name: "Gare Ahuntsic"},
+  { id: "MTL58-6",status:"offline", top: 47.4, left: 60.43, name: "Gare Sauvé"},
+  { id: "MTL57-6",status:"offline", top: 41.87, left: 68.25, name: "Gare Saint-Michel-Montréal-Nord"},
+  { id: "MTL56-6",status:"offline", top: 39.83, left: 71.13, name: "Gare Saint-Léonard-Montréal-Nord"},
+  { id: "MTL55-6",status:"offline", top: 39.12, left: 75.86, name: "Gare Anjou"},
+  { id: "MTL54-6",status:"offline", top: 35.5, left: 82.25, name: "Gare Rivière-des-Prairies"},
+  { id: "MTL53-6",status:"offline", top: 34.72, left: 86.09, name: "Gare Pointe-aux-Trembles"},
+  { id: "LEG1-6",status:"offline", top: 29.58, left: 90.81, name: "Gare Repentigny"},
+  { id: "LCN1-6",status:"offline", top: 29.58, left: 85.84, name: "Gare Terrebonne"},
+  { id: "MAS1-6",status:"offline", top: 29.58, left: 80.93, name: "Gare Mascouche"},
 ];
 
 export function listStations() {

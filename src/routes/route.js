@@ -1,8 +1,8 @@
 import { Router } from "express";
-import stations from "./stations.route.js";
+import trains from "./trains.exo.route.js";
 
 const router = Router();
 
-router.use("/stations", stations);
+router.use("/exo/trains", trains);
 
 export default router;
