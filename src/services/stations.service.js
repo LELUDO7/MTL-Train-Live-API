@@ -4,7 +4,7 @@
 // Description  : stations service
 
 import { getLiveData } from "../data/live-data.js";
-import { stations } from "../data/train.data.js";
+import { stations } from "../data/train.stations.data.js";
 
 export function listStations() {
 

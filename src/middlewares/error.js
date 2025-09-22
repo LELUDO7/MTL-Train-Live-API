@@ -5,14 +5,21 @@
 
 // 404
 export function notFound(req, res, next) {
-  res.status(404).json({ error: "Not Found" });
+  res.status(404).json({ 
+    error: "Not Found",
+    route :  req.originalUrl,
+    method: req.method ,
+    Detail : `The route ${req.url} does not exist please refer to the documention.`
+   });
 }
 
 export function errorHandler(err, req, res, next) {
-  const status = err.status ?? 500;
-  const message = err.message ?? "Internal Server Error";
-  if (status >= 500) {
-  
-  }
-  res.status(status).json({ error: message });
+  log.error(err.stack); 
+
+  res.status(500).json({
+    error: "Internal Server Error",
+    message: err.message,       
+    route: req.originalUrl,     
+    method: req.method,         
+  });
 }

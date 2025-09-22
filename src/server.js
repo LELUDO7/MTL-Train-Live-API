@@ -11,9 +11,11 @@ import { log } from "./utils/logger.js"
 const apiPortColor = "cyan"
 
 const server = app.listen(env.port, () => {
-  log.default(text.color(`API listening on http://localhost:${env.port}`,apiPortColor));
+  log.default(text.color(`API listening on port: ${env.port}`,apiPortColor));
   if (env.dev) {
     log.default(text.color("SERVER IS RUNNING IN DEV MODE (Remove DEV in .env file to make it run in prod mode)", "red"))
+  } else {
+    log.default(text.color("Server is running in prod mode", "green"));
   }
 });
 
