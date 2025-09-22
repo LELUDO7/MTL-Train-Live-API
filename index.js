@@ -4,11 +4,11 @@
 // Description  : Main file
 
 import readline from "readline";
-import * as text from './utils/text.js';
-import { startExoFetcher } from "./exoFetcher/exoApi.js";
-import { log } from "./utils/logger.js";
-import {stop} from "./shutdown.js"
-import server from "./server.js";
+import * as text from './src/utils/text.js';
+import { startExoFetcher } from "./src/exoFetcher/exoApi.js";
+import { log } from "./src/utils/logger.js";
+import {stop} from "./src/shutdown.js"
+import server from "./src/server.js";
 
 const title = "MTL_Train_Live_API";
 const titleFont = "Big";

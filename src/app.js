@@ -8,6 +8,7 @@ import cors from "cors";
 import { notFound, errorHandler } from "./middlewares/error.js";
 import routes from "./routes/route.js";
 import { env } from "./config/env.js";
+import { ALLOWEDORIGINSDEV, ALLOWEDORIGINSPROD } from "../config.js";
 
 const app = express();
 
@@ -15,17 +16,27 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const WHITELIST = new Set([
-  "http://map.mtltrainlive.com",
-  "http://localhost:5173",
-  "http://localhost:3000",
-]);
-
 //This is for the local testing with the Web live map project 
 if (env.dev) {
-    app.use(cors({ origin: ["http://127.0.0.1:5500", "http://map.mtltrainlive.com"]  }));
+    app.use(cors({
+    origin: function (origin, callback) {
+    if (!origin || ALLOWEDORIGINSDEV.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+    }
+    }));
 } else {
-    app.use(cors({ origin: "http://map.mtltrainlive.com" }));
+    app.use(cors({
+    origin: function (origin, callback) {
+    if (!origin || ALLOWEDORIGINSPROD.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+    }
+    }));
 }
 
 // routes
