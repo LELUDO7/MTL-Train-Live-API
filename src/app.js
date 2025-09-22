@@ -1,20 +1,29 @@
+// File name    : app.js
+// Created by   : Ludovic Fournier
+// Created date : 09-09-2025
+// Description  : app use 
+
 import express from "express";
+import cors from "cors";
 import { notFound, errorHandler } from "./middlewares/error.js";
 import routes from "./routes/route.js";
-import cors from "cors";
-
+import { env } from "./config/env.js";
 
 const app = express();
 
-// middlewares globaux
+// gobale middlewares 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//This is for the local testing with the Web live map project 
+if (env.dev) {
 app.use(cors({ origin: "http://127.0.0.1:5500" }));
+}
 
 // routes
 app.use("/api/", routes);
 
-// 404 & erreurs
+// 404 & errors
 app.use(notFound);
 app.use(errorHandler);
 

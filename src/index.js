@@ -3,40 +3,39 @@
 // Created date : 09-09-2025
 // Description  : Main file
 
-// src/index.js
-import { green, blue, cyan } from 'colorette';
+import readline from "readline";
 import * as text from './utils/text.js';
 import { startExoFetcher } from "./exoFetcher/exoApi.js";
-import cors from "cors";
-import app from "./app.js";
 import { log } from "./utils/logger.js";
+import {stop} from "./shutdown.js"
+import server from "./server.js";
 
+const title = "MTL_Train_Live_API";
+const titleFont = "big";
+const githubColor = "blue";
 
-import { env } from "./config/env.js";
-
-app.use(cors({ origin: "http://127.0.0.1:5500" })); 
-
-let title;
-
-title = "MTL_Train_Live_API";
-
-console.log(title);
-console.log(blue("GitHub: https://github.com/LELUDO7/MTL-Train-Live-API"))
-
-const server = app.listen(env.port, () => {
-  log.info(`API listening on http://localhost:${env.port}`);
-});
+//Server title 
+log.default(text.color(text.figlet(title, titleFont), "magenta"));
+log.default(text.color("Made by : Ludovic Fournier", "magenta"));
+log.default(text.color("GitHub: https://github.com/LELUDO7/MTL-Train-Live-API",githubColor))
 
 startExoFetcher();
 
+// Input in terminal 
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const stop = (signal) => {
-  log.info(`${signal} received, shutting down...`);
-  server.close(() => {
-    log.info("HTTP server closed");
-    process.exit(0);
-  });
-};
+rl.on("line", (input) => {
+  if (input.trim() === "stop") {
+    stop(server);
+  } 
+  else {
+    log.error(`"${input}" is not a valid input`)
+  }
+});
+
 
 
 

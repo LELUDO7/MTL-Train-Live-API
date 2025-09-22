@@ -1,3 +1,8 @@
+// File name    : train.exp.route.js
+// Created by   : Ludovic Fournier
+// Created date : 22-09-2025
+// Description  : all trains sub route
+
 import { Router } from "express";
 import stations from "./stations.trains.exo.route.js";
 

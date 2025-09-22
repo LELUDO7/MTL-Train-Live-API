@@ -5,10 +5,8 @@
 
 import axios from "axios";
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
-import fs from "fs";
-import { updateLiveData, getLiveData } from "../live-data.js";
-
-import { log } from "console";
+import { updateLiveData } from "../data/live-data.js";
+import { log } from "../utils/logger.js";
 
 async function fetchExoData() {
   try {
@@ -36,21 +34,16 @@ async function fetchExoData() {
         index++;
       });
 
-      
-
-  
     updateLiveData({ data: feed, updatedAt: new Date().toISOString() })
 
-  
-    console.log("✅ Exo data save at", new Date().toLocaleTimeString());
+    log.info("Exo data save at", new Date().toLocaleTimeString());
   } catch (error) {
-    console.error("❌ Error retrieving Exo data :", error.message);
+    log.error("Error retrieving Exo data :", error.message);
   }
 }
 
 export function startExoFetcher() {
   
   fetchExoData();
-
   setInterval(fetchExoData, 30 * 1000);
 }
