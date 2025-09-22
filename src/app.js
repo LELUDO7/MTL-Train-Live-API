@@ -17,7 +17,9 @@ app.use(express.urlencoded({ extended: false }));
 
 //This is for the local testing with the Web live map project 
 if (env.dev) {
-app.use(cors({ origin: "http://127.0.0.1:5500" }));
+    app.use(cors({ origin: "http://127.0.0.1:5500" }));
+    app.use(cors({ origin: "http://map.mtltrainlive.com" }));
+    app.use(cors({ origin: "https://map.mtltrainlive.com" }));
 } else {
     app.use(cors({ origin: "http://map.mtltrainlive.com" }));
     app.use(cors({ origin: "https://map.mtltrainlive.com" }));
