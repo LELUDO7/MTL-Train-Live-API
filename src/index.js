@@ -11,7 +11,7 @@ import {stop} from "./shutdown.js"
 import server from "./server.js";
 
 const title = "MTL_Train_Live_API";
-const titleFont = "big";
+const titleFont = "Big";
 const githubColor = "blue";
 
 //Server title 
