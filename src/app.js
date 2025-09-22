@@ -15,6 +15,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', 'http://map.mtltrainlive.com');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      if (req.method === 'OPTIONS') {
+        return res.sendStatus(200); // Handle preflight requests
+      }
+      next();
+    });
+
 //This is for the local testing with the Web live map project 
 if (env.dev) {
     app.use(cors({ origin: "http://127.0.0.1:5500" }));
