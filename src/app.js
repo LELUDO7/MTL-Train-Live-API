@@ -23,7 +23,7 @@ const WHITELIST = new Set([
 
 //This is for the local testing with the Web live map project 
 if (env.dev) {
-    app.use(cors({ origin: "http://127.0.0.1:5500"  }));
+    app.use(cors({ origin: ["http://127.0.0.1:5500", "http://map.mtltrainlive.com"]  }));
 } else {
     app.use(cors({ origin: "http://map.mtltrainlive.com" }));
 }
