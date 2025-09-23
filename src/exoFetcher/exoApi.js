@@ -7,6 +7,7 @@ import axios from "axios";
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
 import { updateLiveData } from "../data/live-data.js";
 import { log } from "../utils/logger.js";
+import { EXOAPICALLINTERVAL } from "../../config.js";
 
 async function fetchExoData() {
   try {
@@ -45,5 +46,5 @@ async function fetchExoData() {
 export function startExoFetcher() {
   
   fetchExoData();
-  setInterval(fetchExoData, 30 * 1000);
+  setInterval(fetchExoData, EXOAPICALLINTERVAL * 1000);
 }
