@@ -17,6 +17,7 @@ This a API to know were the mtl exo train are and more. (This use the EXO-chrono
 > The obtain a API please use this website : https://exo.quebec/fr/a-propos/donnees-ouvertes
 
 ### config.js 
+This file allow you to change 3 things, the allow connection in dev mode, the allow connection in prod mode and the time between each API that the api make to EXO (in sec). 
 https://github.com/LELUDO7/MTL-Train-Live-API/blob/d5f3d21206140bace0d5283b6013a56f65bdfb05/config.js#L1-L14
 
 ## Routes :
