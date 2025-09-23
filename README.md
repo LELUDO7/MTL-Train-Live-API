@@ -17,7 +17,7 @@ This a API to know were the mtl exo train are and more. (This use the EXO-chrono
 > The obtain a API please use this website : https://exo.quebec/fr/a-propos/donnees-ouvertes
 
 ### config.js 
-
+https://github.com/LELUDO7/MTL-Train-Live-API/blob/d5f3d21206140bace0d5283b6013a56f65bdfb05/config.js#L1-L14
 
 ## Routes :
 
