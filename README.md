@@ -20,6 +20,5 @@ ex: [
         "name": "Gare Lucien-L'Allier"
     },...
     
-    ]
 
 
