@@ -3,6 +3,8 @@
 // Created date : 22-09-2025
 // Description  : error
 
+import { log } from "../utils/logger.js"
+
 // 404
 export function notFound(req, res, next) {
   res.status(404).json({ 
