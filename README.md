@@ -8,7 +8,7 @@ This a API to know were the mtl exo train are and more. (This use the EXO-chrono
 ### Get trains stations status
 **Description :** This route will return you all the exo train stations status.
 
-**route :** /api/exo/trains/stations  
+**route :** https://api.mtltrainlive.com/api/exo/trains/stations
 **parameters :** N/A  
 
 **Response :**   
