@@ -3,6 +3,22 @@ This a API to know were the mtl exo train are and more. (This use the EXO-chrono
 
 # V1 Documentation
 
+## Config : 
+
+### .env
+
+| Name         |  Value                             | Require |
+| :---         | :---                               | :---    | 
+| PORT         | {The port that the api should use} | Yes |
+| EXO_API_KEY  | {The API key provided by exo }     | Yes |
+| DEV          | dev                                | No  |
+
+> [!NOTE]
+> The obtain a API please use this website : https://exo.quebec/fr/a-propos/donnees-ouvertes
+
+### config.js 
+
+
 ## Routes :
 
 ### Get trains stations status
