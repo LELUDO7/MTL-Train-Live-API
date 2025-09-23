@@ -6,10 +6,12 @@ This a API to know were the mtl exo train are and more. (This use the EXO-chrono
 ## Routes :
 
 ### Get trains stations status
-route : /api/exo/trains/stations
-parameters : N/A
+**Description :** This route will return you all the exo train stations status.
 
-Response : 200 ok 
+**route :** /api/exo/trains/stations
+**parameters :** N/A
+
+**Response :** 
 ex: [
     {
         "id": "MTL3-4",
