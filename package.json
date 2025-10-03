@@ -1,7 +1,7 @@
 {
   "name": "mtl-train-live-api",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This a API to know were the mtl exo train are and more. (This use the EXO-chrono API in the back)",
   "main": "index.js",
   "scripts": {
