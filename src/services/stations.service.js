@@ -6,7 +6,7 @@
 import { getLiveData } from "../data/live-data.js";
 import { stations } from "../data/train.stations.data.js";
 
-export function listStations() {
+export function listStations(trainInfo) {
 
   let data = getLiveData()
 
