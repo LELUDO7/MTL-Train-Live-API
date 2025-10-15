@@ -11,7 +11,7 @@ export const ALLOWEDORIGINSDEV = [
 export const ALLOWEDORIGINHEADERS = [
   "Content-Type",
   "Authorization",
-  "X-Token",
+  "X-Train-Info",
 ];
 
 // EXO API CALL interval
