@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
     origin: "*",
-    allowedHeaders: ["Content-Type", "Authorization", "X-Token"],
+    allowedHeaders: ["Content-Type", "Authorization", "train_info"],
   })
 );
 
