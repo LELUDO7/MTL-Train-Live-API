@@ -8,7 +8,7 @@ import cors from "cors";
 import { notFound, errorHandler } from "./middlewares/error.js";
 import routes from "./routes/route.js";
 import { env } from "./config/env.js";
-import { ALLOWEDORIGINSDEV, ALLOWEDORIGINSPROD } from "../config.js";
+import { ALLOWEDORIGINHEADERS, ALLOWEDORIGINSDEV, ALLOWEDORIGINSPROD } from "../config.js";
 
 const app = express();
 
@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 //This is for the local testing with the Web live map project 
 if (env.dev) {
     app.use(cors({
+    allowedHeaders: ALLOWEDORIGINHEADERS,
     origin: function (origin, callback) {
     if (!origin || ALLOWEDORIGINSDEV.includes(origin)) {
       callback(null, true);
