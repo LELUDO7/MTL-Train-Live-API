@@ -6,7 +6,7 @@
 import * as svc from "../services/stations.service.js";
 
 export function list(req, res, next) {
-  const trainInfo = req.headers["x-train_info"];
+  const trainInfo = req.headers["x-train-info"];
 
   
   if (trainInfo == "True" || trainInfo == "true") {
