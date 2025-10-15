@@ -24,7 +24,12 @@ app.use(express.urlencoded({ extended: false }));
 if (env.dev) {
   app.use(
     cors({
-      
+      allowedHeaders: [
+        "cache",
+        "X-Train-Info",
+        "Content-Type",
+        "Authorization",
+      ],
       origin: function (origin, callback) {
         if (!origin || ALLOWEDORIGINSDEV.includes(origin)) {
           callback(null, true);
@@ -37,7 +42,12 @@ if (env.dev) {
 } else {
   app.use(
     cors({
-      
+      allowedHeaders: [
+        "cache",
+        "X-Train-Info",
+        "Content-Type",
+        "Authorization",
+      ],
       origin: function (origin, callback) {
         if (!origin || ALLOWEDORIGINSPROD.includes(origin)) {
           callback(null, true);
