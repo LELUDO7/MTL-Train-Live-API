@@ -10,6 +10,7 @@ import { log } from "./src/utils/logger.js";
 import {stop} from "./src/shutdown.js"
 import server from "./src/server.js";
 
+
 const title = "MTL_Train_Live_API";
 const titleFont = "Big";
 const githubColor = "blue";
