@@ -7,27 +7,31 @@ import { getLiveData } from "../data/live-data.js";
 import { stations } from "../data/train.stations.data.js";
 
 export function listStations(trainInfo) {
+  let data = getLiveData();
 
-  let data = getLiveData()
+  let liveStations = structuredClone(stations);
 
-  for (let index = 0; index < stations.length; index++) {
-    stations[index].status = "offline"
-    
-  }
+  for (let index = 0; index < liveStations.length; index++) {
 
-  for (let index = 0; index < stations.length; index++) {
-   
     for (const trains of data.data.entity) {
-      if (trains.vehicle.stopId == stations[index].id ) {
 
+      if (trains.vehicle.stopId == liveStations[index].id) {
+        
         if (trains.vehicle.currentStatus == 1) {
-          stations[index].status = "stopped";
+          liveStations[index].status = "stopped";
         } else {
-          stations[index].status = "incoming";
+          liveStations[index].status = "incoming";
         }
-      } 
+
+        if (trainInfo) {
+          liveStations[index].occupancyStatus = trains.vehicle.occupancyStatus;
+          liveStations[index].train = trains.vehicle.multiCarriageDetails;
+          
+        }
+
+      }
     }
   }
 
-  return stations;
+  return liveStations;
 }
