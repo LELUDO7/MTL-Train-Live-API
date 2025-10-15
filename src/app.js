@@ -25,9 +25,7 @@ if (env.dev) {
   app.use(
     cors({
       cache: "no-store",
-      allowedHeaders: {
-        "X-Train-Info": "true", // ✅ ton header perso
-      },
+      allowedHeaders: ["Content-Type", "X-Train-Info"],
       origin: function (origin, callback) {
         if (!origin || ALLOWEDORIGINSDEV.includes(origin)) {
           callback(null, true);
@@ -41,9 +39,7 @@ if (env.dev) {
   app.use(
     cors({
       cache: "no-store",
-      allowedHeaders: {
-        "X-Train-Info": "true", // ✅ ton header perso
-      },
+      allowedHeaders: ["Content-Type", "X-Train-Info"],
       origin: function (origin, callback) {
         if (!origin || ALLOWEDORIGINSPROD.includes(origin)) {
           callback(null, true);
