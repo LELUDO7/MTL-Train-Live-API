@@ -7,6 +7,8 @@ import * as svc from "../services/stations.service.js";
 
 export function list(req, res, next) {
   const trainInfo = req.headers["train_info"];
+  console.log("==== HEADERS REÇUS ====");
+  console.log(req.headers);
   
   if (trainInfo == "True" || trainInfo == "true") {
     try {
