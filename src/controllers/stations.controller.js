@@ -9,14 +9,18 @@ export function list(req, res, next) {
   const trainInfo = req.headers["train_info"];
   
   if (trainInfo == "True" || trainInfo == "true") {
-    console.log("asdaasd");
+    try {
+      res.json(svc.listStations(true));
+    } catch (e) {
+      next(e);
+    }
   } else {
-
+    try {
+      res.json(svc.listStations(false));
+    } catch (e) {
+      next(e);
+    }
   }
 
-  try {
-    res.json(svc.listStations(true));
-  } catch (e) {
-    next(e);
-  }
+  
 }
