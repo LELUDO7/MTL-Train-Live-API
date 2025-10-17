@@ -1,5 +1,8 @@
 // Allow connection in prod mod
-export const ALLOWEDORIGINSPROD = ["https://map.mtltrainlive.com"];
+export const ALLOWEDORIGINSPROD = [
+  "https://map.mtltrainlive.com",
+  "https://map.montrax.org",
+];
 
 // Allow connection in dev mod
 export const ALLOWEDORIGINSDEV = [
@@ -7,6 +10,8 @@ export const ALLOWEDORIGINSDEV = [
   "https://127.0.0.1:5500",
   "http://map.mtltrainlive.com",
   "https://map.mtltrainlive.com",
+  "http://map.montrax.org",
+  "https://map.montrax.org",
 ];
 
 export const ALLOWEDORIGINHEADERS = ["Content-Type", "X-Train-Info"];
