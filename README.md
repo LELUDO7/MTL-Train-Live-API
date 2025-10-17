@@ -1,6 +1,6 @@
 # **MTL-Train-Live-API**
 This a API to know were the mtl exo train are and more. (This use the EXO-chrono API in the back)
-This API was build for running https://map.mtltrainlive.com website. 
+This API was build for running https://map.montrax.org website. 
 
 # V1 Documentation
 
