@@ -18,7 +18,6 @@ export function listStations(trainInfo) {
 
     for (const trains of data.data.entity) {
       if (trains.vehicle.stopId == liveStations[index].id) {
-        console.log(trains.vehicle.stopId);
         if (trains.vehicle.currentStatus == 1) {
           liveStations[index].status = "stopped";
         } else {
