@@ -31,6 +31,11 @@ export function listStations(trainInfo) {
             if (trip.trip_id == trains.vehicle.trip.tripId) {
               traindetail.trip_short_name = trip.trip_short_name;
               traindetail.trip_headsign = trip.trip_headsign;
+              if (trains.vehicle.currentStatus == 1) {
+                traindetail.status = "stopped";
+              } else {
+                traindetail.status = "incoming";
+              }
             }
           });
           traindetail.occupancyStatus = trains.vehicle.occupancyStatus;
