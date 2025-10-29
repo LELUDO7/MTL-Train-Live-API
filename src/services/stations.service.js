@@ -10,7 +10,6 @@ import { trips } from "../data/trips.js";
 export function listStations(trainInfo) {
   let data = getLiveData();
   let liveStations = structuredClone(stations);
-  let traindetail = {};
 
   for (let index = 0; index < liveStations.length; index++) {
     if (trainInfo) {
@@ -19,6 +18,7 @@ export function listStations(trainInfo) {
 
     for (const trains of data.data.entity) {
       if (trains.vehicle.stopId == liveStations[index].id) {
+        console.log(trains.vehicle.stopId);
         if (trains.vehicle.currentStatus == 1) {
           liveStations[index].status = "stopped";
         } else {
@@ -26,6 +26,7 @@ export function listStations(trainInfo) {
         }
 
         if (trainInfo) {
+          let traindetail = {};
           trips.forEach((trip) => {
             if (trip.trip_id == trains.vehicle.trip.tripId) {
               traindetail.trip_short_name = trip.trip_short_name;
