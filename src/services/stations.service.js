@@ -6,6 +6,8 @@
 import { getLiveData } from "../data/live-data.js";
 import { stations } from "../data/train.stations.data.js";
 import { trips } from "../data/trips.js";
+import { TRAIN_COACH } from "../data/train.coach.js"
+import { TRAIN_ENGINE } from "../data/train.engine.js"
 
 export function listStations(trainInfo) {
   let data = getLiveData();
@@ -38,7 +40,23 @@ export function listStations(trainInfo) {
             }
           });
           traindetail.occupancyStatus = trains.vehicle.occupancyStatus;
-          traindetail.train = trains.vehicle.multiCarriageDetails;
+          traindetail.train = structuredClone(trains.vehicle.multiCarriageDetails);
+          traindetail.train.forEach((wagon) => {
+            TRAIN_COACH.forEach(coach => {
+              wagon.id = wagon.id.replace(/^exo/, "");
+              if (coach.id <= wagon.id && wagon.id <= coach.number_end) {
+                console.log(wagon.id)
+                wagon.model_id = coach.id;
+              }
+            });
+            TRAIN_ENGINE.forEach((coach) => {
+              wagon.id = wagon.id.replace(/^exo/, "");
+              if (coach.id <= wagon.id && wagon.id <= coach.number_end) {
+                console.log(wagon.id);
+                wagon.model_id = coach.id;
+              }
+            });
+          });
           liveStations[index].trains_list.push(traindetail);
         }
       }
