@@ -17,4 +17,4 @@ export const ALLOWEDORIGINSDEV = [
 export const ALLOWEDORIGINHEADERS = ["Content-Type", "X-Train-Info"];
 
 // EXO API CALL interval
-export const EXOAPICALLINTERVAL = 30; //Value in second
+export const EXOAPICALLINTERVAL = 15; //Value in second
