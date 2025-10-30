@@ -45,14 +45,12 @@ export function listStations(trainInfo) {
             TRAIN_COACH.forEach(coach => {
               wagon.id = wagon.id.replace(/^exo/, "");
               if (coach.id <= wagon.id && wagon.id <= coach.number_end) {
-                console.log(wagon.id)
                 wagon.model_id = coach.id;
               }
             });
             TRAIN_ENGINE.forEach((coach) => {
               wagon.id = wagon.id.replace(/^exo/, "");
               if (coach.id <= wagon.id && wagon.id <= coach.number_end) {
-                console.log(wagon.id);
                 wagon.model_id = coach.id;
               }
             });
