@@ -2,7 +2,7 @@
 This a API to know were the mtl exo train are and more. (This use the EXO-chrono API in the back)
 This API was build for running https://map.montrax.org website. 
 
-# V1 Documentation
+# V1.3 Documentation
 
 ## Config : 
 
@@ -28,7 +28,7 @@ https://github.com/LELUDO7/MTL-Train-Live-API/blob/d5f3d21206140bace0d5283b6013a
 | Route        |  /api/exo/trains/stations  | 
 | :---         |     :---     | 
 | Description  | This route will return you all the exo train stations status in a list.     | 
-| Parameters   | N/A     | 
+| Parameters   | X-Train-Info = true (Optional) If set to true, there will be an array called “trains_list”. This array will contain every train that is stopped at or approaching this station. Each train will include its occupancyStatus, as well as an array containing the name and number of every coach and locomotive that is part of the train.   | 
 
 Response structure : 
 ```js
