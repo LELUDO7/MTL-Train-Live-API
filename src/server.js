@@ -4,11 +4,14 @@
 // Description  : server file
 
 import app from "./app.js";
+import connectDB from "./db.js";
 import * as text from "./utils/text.js"
 import { env } from "./config/env.js";
 import { log } from "./utils/logger.js"
 
 const apiPortColor = "cyan"
+
+connectDB();
 
 const server = app.listen(env.port, () => {
   log.default(text.color(`API listening on port: ${env.port}`,apiPortColor));
