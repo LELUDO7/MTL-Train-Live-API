@@ -1,17 +1,16 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
+import { log } from "./utils/logger.js";
+import { env } from "./config/env.js";
+import * as text from "./utils/text.js"
 
-dotenv.config();
+const color = "green";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("MongoDB connecté avec succès! 🚀");
+    await mongoose.connect(env.mongoUri);
+    log.default(text.color(`Connected to DB`,color));
   } catch (err) {
-    console.error("Erreur de connexion MongoDB :", err.message);
+    log.error("Can't connect to MongoDB DB :", err.message);
     process.exit(1);
   }
 };
