@@ -8,34 +8,37 @@ import GtfsRealtimeBindings from "gtfs-realtime-bindings";
 import { updateLiveData } from "../data/live-data.js";
 import { log } from "../utils/logger.js";
 import { EXOAPICALLINTERVAL } from "../../config.js";
+import * as DB from "./updateTrainDB.js";
 
 async function fetchExoData() {
   try {
     const response = await axios.get(
-        `https://exo.chrono-saeiv.com/api/opendata/v1/TRAINS/vehicleposition`, 
-        {
-          headers: {
-            "Ocp-Apim-Subscription-Key": `${process.env.EXO_API_KEY}`, 
-            "Cache-Control": "no-cache"
-          },
-          responseType: "arraybuffer",
-          timeout: 15000,
-        }
-     );
+      `https://exo.chrono-saeiv.com/api/opendata/v1/TRAINS/vehicleposition`,
+      {
+        headers: {
+          "Ocp-Apim-Subscription-Key": `${process.env.EXO_API_KEY}`,
+          "Cache-Control": "no-cache",
+        },
+        responseType: "arraybuffer",
+        timeout: 15000,
+      }
+    );
 
-      const buffer = response.data;
+    const buffer = response.data;
 
-      const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(
-        new Uint8Array(buffer)
-      );
+    const feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(
+      new Uint8Array(buffer)
+    );
 
-      let index = 0;
-      feed.entity.forEach(train => {
-        feed.entity[index].vehicle.stopId = train.vehicle.stopId.slice(0,-1) + "-" +  train.vehicle.trip.routeId;
-        index++;
-      });
-
-    updateLiveData({ data: feed, updatedAt: new Date().toISOString() })
+    let index = 0;
+    feed.entity.forEach((consist) => {
+      feed.entity[index].vehicle.stopId =
+        consist.vehicle.stopId.slice(0, -1) + "-" + consist.vehicle.trip.routeId;
+      DB.updateDB(consist);
+      index++;
+    });
+ 
+    updateLiveData({ data: feed, updatedAt: new Date().toISOString() });
 
     log.info("Exo data save at", new Date().toLocaleTimeString());
   } catch (error) {
@@ -44,7 +47,6 @@ async function fetchExoData() {
 }
 
 export function startExoFetcher() {
-  
   fetchExoData();
   setInterval(fetchExoData, EXOAPICALLINTERVAL * 1000);
 }

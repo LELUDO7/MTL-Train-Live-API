@@ -10,8 +10,6 @@ const envPath = path.join(rootPath, ".env");
 
 dotenv.config({ path: envPath });
 
-console.log(process.env.EXO_API_KEY)
-
 if (!process.env.PORT) {
   log.error(' PORT Variable missing in .env');
   process.exit(1);
@@ -22,9 +20,15 @@ if (!process.env.EXO_API_KEY) {
   process.exit(1);
 }
 
+if (!process.env.MONGO_URI) {
+  log.error(" MONGO_URI Variable missing in .env");
+  process.exit(1);
+}
+
 export const env = {
   exoApiKey: process.env.EXO_API_KEY ?? "null",
   port: Number(process.env.PORT ?? 3000),
-  dev: process.env.DEV
+  dev: process.env.DEV,
+  mongoUri: process.env.MONGO_URI
 };
 

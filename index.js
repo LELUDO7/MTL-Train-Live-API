@@ -9,9 +9,10 @@ import { startExoFetcher } from "./src/exoFetcher/exoApi.js";
 import { log } from "./src/utils/logger.js";
 import {stop} from "./src/shutdown.js"
 import server from "./src/server.js";
+import connectDB from "./src/db.js";
 
 
-const title = "MTL_Train_Live_API";
+const title = "Montrax_API";
 const titleFont = "Big";
 const githubColor = "blue";
 
@@ -20,7 +21,9 @@ log.default(text.color(text.figlet(title, titleFont), "magenta"));
 log.default(text.color("Made by : Ludovic Fournier", "magenta"));
 log.default(text.color("GitHub: https://github.com/LELUDO7/MTL-Train-Live-API",githubColor))
 
+await connectDB();
 startExoFetcher();
+
 
 // Input in terminal 
 const rl = readline.createInterface({
