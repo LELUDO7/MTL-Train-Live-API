@@ -16,7 +16,11 @@ export const ALLOWEDORIGINSDEV = [
   "https://map.montrax.org",
 ];
 
-export const ALLOWEDORIGINHEADERS = ["Content-Type", "X-Train-Info"];
+export const ALLOWEDORIGINHEADERS = [
+  "Content-Type",
+  "X-Train-Info",
+  "X-Consists-Line",
+];
 
 // EXO API CALL interval
 export const EXOAPICALLINTERVAL = 15; //Value in second
