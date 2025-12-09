@@ -6,10 +6,12 @@
 import { Router } from "express";
 import stations from "./stations.trains.exo.route.js";
 import rails from "./rails.trains.exo.route.js";
+import consists from "./consists.trains.exo.route.js"
 
 const router = Router();
 
 router.use("/stations", stations);
 router.use("/rails", rails);
+router.use("/consists", consists);
 
 export default router;

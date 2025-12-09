@@ -31,13 +31,13 @@ async function fetchExoData() {
     );
 
     let index = 0;
-    feed.entity.forEach((train) => {
+    feed.entity.forEach((consist) => {
       feed.entity[index].vehicle.stopId =
-        train.vehicle.stopId.slice(0, -1) + "-" + train.vehicle.trip.routeId;
-      DB.updateDB(train);
+        consist.vehicle.stopId.slice(0, -1) + "-" + consist.vehicle.trip.routeId;
+      DB.updateDB(consist);
       index++;
     });
-
+ 
     updateLiveData({ data: feed, updatedAt: new Date().toISOString() });
 
     log.info("Exo data save at", new Date().toLocaleTimeString());
