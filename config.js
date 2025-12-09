@@ -2,6 +2,8 @@
 export const ALLOWEDORIGINSPROD = [
   "https://map.mtltrainlive.com",
   "https://map.montrax.org",
+  "http://127.0.0.1:5500",
+  "https://127.0.0.1:5500",
 ];
 
 // Allow connection in dev mod
