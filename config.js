@@ -17,7 +17,9 @@ export const ALLOWEDORIGINSDEV = [
 ];
 
 export const ALLOWEDORIGINHEADERS = [
+  "cache",
   "Content-Type",
+  "Authorization",
   "X-Train-Info",
   "X-Consists-Line",
 ];
