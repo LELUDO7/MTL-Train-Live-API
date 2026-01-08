@@ -18,6 +18,7 @@ const consistSchema = new mongoose.Schema(
   {
     trip_short_name: { type: String, required: true },
     trip_headsign: { type: String, required: true },
+    date: { type: Date, required: true },
     line: { type: Number, required: true },
     composition: [compositionSchema],
   },
