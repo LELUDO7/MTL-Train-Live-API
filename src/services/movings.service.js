@@ -38,7 +38,7 @@ export function listMovingsTrains(trainInfo) {
     train.position = position;
     train.line = entity.vehicle.trip.routeId;
     train.stationId = entity.vehicle.stopId;
-    traindetail.occupancyStatus = entity.vehicle.occupancyStatus;
+    train.occupancyStatus = entity.vehicle.occupancyStatus;
 
     if (trainInfo) {
       let traindetail = {};
