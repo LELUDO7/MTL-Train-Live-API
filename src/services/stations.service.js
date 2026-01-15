@@ -11,7 +11,7 @@ import { TRAIN_ENGINE } from "../data/train.engine.js"
 
 export function listStations(trainInfo) {
   let data = getLiveData();
-  if (data.entity === null) {
+  if (data.data === null) {
     return [];
   }
   let liveStations = structuredClone(stations);
