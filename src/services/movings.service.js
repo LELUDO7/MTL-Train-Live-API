@@ -36,7 +36,7 @@ export function listMovingsTrains(trainInfo) {
     position.latitude = entity.vehicle.position.latitude;
     position.longitude = entity.vehicle.position.longitude;
     train.position = position;
-    train.line = entity.vehicle.trip.routId;
+    train.line = entity.vehicle.trip.routeId;
     train.stationId = entity.vehicle.stopId;
 
     if (trainInfo) {

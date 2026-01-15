@@ -1,7 +1,7 @@
 {
   "name": "Montrax_API",
   "type": "module",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "This a API to know were the mtl exo train are and more. (This use the EXO-chrono API in the back)",
   "main": "index.js",
   "scripts": {
