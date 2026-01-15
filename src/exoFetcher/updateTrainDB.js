@@ -48,6 +48,7 @@ export async function updateDB(consist) {
       $set: {
         trip_short_name: trip_short_name,
         trip_headsign: trip_headsign,
+        date: new Date(),
         line: line,
         composition: train_composition,
       },
