@@ -11,7 +11,6 @@ import { TRAIN_ENGINE } from "../data/train.engine.js"
 
 export function listStations(trainInfo) {
   let data = getLiveData();
-  console.log(data);
   if (data.entity === null) {
     return [];
   }
