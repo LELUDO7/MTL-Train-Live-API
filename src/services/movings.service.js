@@ -10,6 +10,9 @@ import { TRAIN_ENGINE } from "../data/train.engine.js";
 
 export function listMovingsTrains(trainInfo) {
   let data = getLiveData();
+  if (data.entity == null) {
+    return [];
+  }
 
   let livetrains = [];
 

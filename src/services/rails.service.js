@@ -10,6 +10,9 @@ import { trips } from "../data/trips.js";
 
 export function listRails() {
   let data = getLiveData();
+  if (data.entity == null) {
+    return [];
+  }
 
   for (let index = 0; index < rails.length; index++) {
     rails[index].status = "notpresent";
