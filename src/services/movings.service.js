@@ -20,12 +20,6 @@ export function listMovingsTrains(trainInfo) {
     let train = {};
     let position = {};
 
-    if (entity.vehicle.currentStatus == 1) {
-      train.status = "stopped";
-    } else {
-      train.status = "incoming";
-    }
-
     trips.forEach((trip) => {
       if (trip.trip_id == entity.vehicle.trip.tripId) {
         train.trip_short_name = trip.trip_short_name;
@@ -33,13 +27,22 @@ export function listMovingsTrains(trainInfo) {
       }
     });
 
-    train.speed = entity.vehicle.position.speed;
+    if (entity.vehicle.currentStatus == 1) {
+      train.status = "stopped";
+    } else {
+      train.status = "incoming";
+    }
+
     position.latitude = entity.vehicle.position.latitude;
     position.longitude = entity.vehicle.position.longitude;
     train.position = position;
+    train.line = entity.vehicle.trip.routId;
+    train.stationId = entity.vehicle.stopId;
 
     if (trainInfo) {
       let traindetail = {};
+
+      traindetail.speed = entity.vehicle.position.speed;
       traindetail.occupancyStatus = entity.vehicle.occupancyStatus;
       traindetail.consists = structuredClone(
         entity.vehicle.multiCarriageDetails
