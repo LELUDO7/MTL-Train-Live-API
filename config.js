@@ -14,6 +14,8 @@ export const ALLOWEDORIGINSDEV = [
   "https://map.mtltrainlive.com",
   "http://map.montrax.org",
   "https://map.montrax.org",
+  "http://mapdev.montrax.org",
+  "https://mapdev.montrax.org",
 ];
 
 export const ALLOWEDORIGINHEADERS = [
