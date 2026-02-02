@@ -42,19 +42,35 @@ export async function updateDB(consist) {
     });
   });
 
-  await Consist.findOneAndUpdate(
-    { trip_short_name: trip_short_name },
-    {
-      $set: {
+  const now = new Date();
+
+  //Retrieve the last consists with the same trip_short_name and the most recent
+  const last = await Consist.findOne({
+    trip_short_name: trip_short_name,
+  }).sort({ date: -1 });
+
+  //If it exist
+  if (last) {
+    //Was he created in more then 12 hour ago
+    if ((now - last.date) / (1000 * 60 * 60) > 12) {
+      console.log(last);
+      //If yes create a new one
+      await Consist.create({
         trip_short_name: trip_short_name,
         trip_headsign: trip_headsign,
         date: new Date(),
         line: line,
         composition: train_composition,
-      },
-    },
-    {
-      upsert: true,
+      });
     }
-  );
+  } else {
+    // If it dosen't existe create it
+    await Consist.create({
+      trip_short_name: trip_short_name,
+      trip_headsign: trip_headsign,
+      date: new Date(),
+      line: line,
+      composition: train_composition,
+    });
+  }
 }
