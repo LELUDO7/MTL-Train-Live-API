@@ -54,7 +54,6 @@ export async function updateDB(consist) {
   if (last) {
     //Was he created in more then 12 hour ago
     if ((now - last.date) / (1000 * 60 * 60) > 12) {
-      console.log(last);
       //If yes create a new one
       await Consist.create({
         trip_short_name: trip_short_name,

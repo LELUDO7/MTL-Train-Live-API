@@ -3,7 +3,6 @@
 // Created date : 08-12-2025
 // Description  : consists service
 import consist from "../data/models/consist.js";
-import { log } from "../utils/logger.js";
 
 export async function listConsists(line, dateStr) {
   if (dateStr === undefined) {
@@ -42,7 +41,7 @@ export async function listConsists(line, dateStr) {
 }
 
 function dayRangeUTC(dateStr) {
-  console.log(dateStr);
+
   const [y, m, d] = dateStr.split("-").map(Number);
 
   if (!y || !m || !d || dateStr.length > 10 || dateStr.length < 10) {
