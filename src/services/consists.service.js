@@ -6,6 +6,13 @@ import consist from "../data/models/consist.js";
 import { log } from "../utils/logger.js";
 
 export async function listConsists(line, dateStr) {
+  if (dateStr === undefined) {
+    const error = new Error();
+    error.status = 400;
+    error.detail = `This date is not valid : ${dateStr}`;
+    return error;
+  }
+
   if (line == 1 || (3 <= line && line <= 6)) {
     try {
       const { start, end } = dayRangeUTC(dateStr);
@@ -35,6 +42,7 @@ export async function listConsists(line, dateStr) {
 }
 
 function dayRangeUTC(dateStr) {
+  console.log(dateStr);
   const [y, m, d] = dateStr.split("-").map(Number);
 
   if (!y || !m || !d || dateStr.length > 10 || dateStr.length < 10) {
