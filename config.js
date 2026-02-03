@@ -24,6 +24,7 @@ export const ALLOWEDORIGINHEADERS = [
   "Authorization",
   "X-Train-Info",
   "X-Consists-Line",
+  "X-Consists-Date",
 ];
 
 // EXO API CALL interval
