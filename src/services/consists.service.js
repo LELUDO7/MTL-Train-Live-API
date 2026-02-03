@@ -5,22 +5,47 @@
 import consist from "../data/models/consist.js";
 import { log } from "../utils/logger.js";
 
-export async function listConsists(line) {
-
-  if (line == 1 || ( 3 <=line && line <= 6)) {
+export async function listConsists(line, dateStr) {
+  if (line == 1 || (3 <= line && line <= 6)) {
     try {
-      const data = await consist.find({ line: line });
+      const { start, end } = dayRangeUTC(dateStr);
+
+      const data = await consist.find({
+        line,
+        date: {
+          $gte: start,
+          $lt: end,
+        },
+      });
+
       data.sort(
         (a, b) => Number(a.trip_short_name) - Number(b.trip_short_name)
       );
+
       return data;
     } catch (err) {
-      log.error("Faild to find consists :", err);
-      throw err;
+      return err;
     }
   } else {
-    const error = new Error(`Line ${line} doesn't existe.`);
-    error.status = 400; 
+    const error = new Error();
+    error.status = 400;
+    error.detail = `Line ${line} doesn't existe.`;
     return error;
   }
+}
+
+function dayRangeUTC(dateStr) {
+  const [y, m, d] = dateStr.split("-").map(Number);
+
+  if (!y || !m || !d || dateStr.length > 10 || dateStr.length < 10) {
+    const error = new Error();
+    error.status = 400;
+    error.detail = `This date is not valid : ${dateStr}`;
+    throw error;
+  }
+
+  const start = new Date(Date.UTC(y, m - 1, d));
+  const end = new Date(Date.UTC(y, m - 1, d + 1));
+
+  return { start, end };
 }

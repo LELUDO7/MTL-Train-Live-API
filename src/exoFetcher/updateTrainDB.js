@@ -7,6 +7,7 @@ import Consist from "../data/models/consist.js";
 import { trips } from "../data/trips.js";
 import { TRAIN_COACH } from "../data/train.coach.js";
 import { TRAIN_ENGINE } from "../data/train.engine.js";
+import { nowInMontreal } from "../utils/date.js";
 
 export async function updateDB(consist) {
   let trip_short_name;
@@ -58,7 +59,7 @@ export async function updateDB(consist) {
       await Consist.create({
         trip_short_name: trip_short_name,
         trip_headsign: trip_headsign,
-        date: new Date(),
+        date: nowInMontreal(),
         line: line,
         composition: train_composition,
       });
@@ -68,7 +69,7 @@ export async function updateDB(consist) {
     await Consist.create({
       trip_short_name: trip_short_name,
       trip_headsign: trip_headsign,
-      date: new Date(),
+      date: nowInMontreal(),
       line: line,
       composition: train_composition,
     });
