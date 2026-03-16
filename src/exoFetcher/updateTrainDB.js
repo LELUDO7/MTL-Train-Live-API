@@ -52,7 +52,6 @@ export async function updateDB(consist) {
 
   //If it exist
   if (last) {
-    console.log(last.composition);
     //Was he created in more then 12 hour ago
     if ((now - last.date) / (1000 * 60 * 60) > 12) {
       //If yes create a new one
