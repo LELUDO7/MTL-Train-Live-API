@@ -52,6 +52,7 @@ export async function updateDB(consist) {
 
   //If it exist
   if (last) {
+    console.log(last.composition);
     //Was he created in more then 12 hour ago
     if ((now - last.date) / (1000 * 60 * 60) > 12) {
       //If yes create a new one
@@ -62,6 +63,14 @@ export async function updateDB(consist) {
         line: line,
         composition: train_composition,
       });
+    } else {
+      //If for some reason the train composition array is empty we add the new info
+      if (last.composition.length === 0) {
+        await Consist.updateOne(
+          { _id: last._id },
+          { composition: train_composition }
+        );
+      }
     }
   } else {
     // If it dosen't existe create it
