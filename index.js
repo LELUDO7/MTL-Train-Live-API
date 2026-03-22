@@ -12,14 +12,16 @@ import server from "./src/server.js";
 import connectDB from "./src/db.js";
 
 
-const title = "Montrax_API";
+const title = "TraxAPI";
 const titleFont = "Big";
 const githubColor = "blue";
 
 //Server title 
 log.default(text.color(text.figlet(title, titleFont), "magenta"));
 log.default(text.color("Made by : Ludovic Fournier", "magenta"));
-log.default(text.color("GitHub: https://github.com/LELUDO7/MTL-Train-Live-API",githubColor))
+log.default(
+  text.color("GitHub: https://github.com/MonTraxDev/MonTrax-API", githubColor)
+);
 
 await connectDB();
 startExoFetcher();
