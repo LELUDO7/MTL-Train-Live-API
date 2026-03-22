@@ -77,8 +77,8 @@ Response structure :
 
 | Route        |  /api/exo/trains/rails  | 
 | :---         |     :---     | 
-| Description  | This route will return you a array of all the trains that ran on the line and the date specified in the headers.    | 
-| Headers      |  x-Consists-Line = {line number (1,2,4,5 and 6)} (require) and X-Consists-Date = yyyy-mm-dd (require)   | 
+| Description  | This route returns an array of all the trains that ran on the line and date specified in the headers.  | 
+| Headers      | x-Consists-Line = {line number (1,2,4,5 and 6)} (require) and X-Consists-Date = yyyy-mm-dd (require)   | 
 
 Response structure : 
 ```js
@@ -115,3 +115,12 @@ Response structure :
 > ```
 
 ### Get movings trains
+| Route        |  /api/exo/trains/rails  | 
+| :---         |     :---     | 
+| Description  | This route returns an array of all the trains currently running on the EXO network.   | 
+| Headers      |  N/A   | 
+
+Response structure : 
+```js
+
+```
