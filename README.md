@@ -122,5 +122,39 @@ Response structure :
 
 Response structure : 
 ```js
-
+[
+    {
+        "trip_short_name": 205, // The train number of the consist.
+        "trip_headsign": "Saint-Jérôme", / The destiation of the train.
+        "status": "incoming", // The status of the train (stopped at a station or in transit to one).
+        "position": { // Exact postion of the train
+            "latitude": 45.609004974365234,
+            "longitude": -73.74784851074219
+        },
+        "line": "4", // The line number on which the train is running.
+        "stationId": "LVL4-4", // The ID of the station the train is heading to or stopped at.
+        "occupancyStatus": 0 // The level of occupation on the train. 
+    },...
+]
 ```
+>[!NOTE]
+> ```js
+> OCCUPATION_LEVEL_CLASS = {
+>  0: "menu.occupation.empty",
+>  1: "menu.occupation.manyseat",
+>  2: "menu.occupation.fewseat",
+>  3: "menu.occupation.standing",
+>  4: "menu.occupation.crushstanding",
+>  5: "menu.occupation.full",
+>  6: "menu.occupation.nopassanger",
+> };
+>
+> LINE_NAME = {
+>  1: "11 (Vaudreuil)",
+>  3: "13 (Mont-Saint-Hilaire)",
+>  4: "12 (Saint-Jérôme)",
+>  5: "14 (Candiac)",
+>  6: "15 (Mascouche)",
+>};
+>```
+> 
