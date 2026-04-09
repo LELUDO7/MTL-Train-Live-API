@@ -73,12 +73,20 @@ export async function updateDB(consist) {
     }
   } else {
     // If it dosen't existe create it
-    await Consist.create({
-      trip_short_name: trip_short_name,
-      trip_headsign: trip_headsign,
-      date: nowInMontreal(),
-      line: line,
-      composition: train_composition,
-    });
+
+    if (
+      trip_short_name !== undefined &&
+      trip_headsign !== undefined &&
+      line !== undefined &&
+      train_composition !== undefined
+    ) {
+      await Consist.create({
+        trip_short_name: trip_short_name,
+        trip_headsign: trip_headsign,
+        date: nowInMontreal(),
+        line: line,
+        composition: train_composition,
+      });
+    }
   }
 }
