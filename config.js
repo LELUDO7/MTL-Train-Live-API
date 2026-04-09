@@ -18,6 +18,10 @@ export const ALLOWEDORIGINSDEV = [
   "https://mapdev.montrax.org",
 ];
 
+// EXO API CALL interval
+export const EXOAPICALLINTERVAL = 15; //Value in second
+
+
 export const ALLOWEDORIGINHEADERS = [
   "cache",
   "Content-Type",
@@ -27,5 +31,3 @@ export const ALLOWEDORIGINHEADERS = [
   "X-Consists-Date",
 ];
 
-// EXO API CALL interval
-export const EXOAPICALLINTERVAL = 15; //Value in second
